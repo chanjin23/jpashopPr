@@ -5,15 +5,19 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.PersistenceUnit;
 import jpabookPr.jpashopPr.domain.Member;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository //어노테이션안에 Component가 있기 때문에 스프링부트에서 자동으로 스프링 빈등록
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext //JPA 엔티티 매니저에 자동으로 주입을 시켜준다.
-    private EntityManager em;   //injection을 시켜준다.
+//    @PersistenceContext //JPA 엔티티 매니저에 자동으로 주입을 시켜준다. //spring에서 JPA persistence를 안해도 자동으로 주입을 시켜준다.
+//    @Autowired  //원래는 Autowired를 하면 안되는데 지원을 해준다.
+    private final EntityManager em;   //injection을 시켜준다.
 
     /*@PersistenceUnit
     private EntityManagerFactory emf;*/ //만약 직접 엔티티매니저를 꺼내고싶다면 다음과 같이 해서 주입받으면 됨.
