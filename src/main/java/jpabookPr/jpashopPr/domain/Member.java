@@ -22,5 +22,7 @@ public class Member {
     private Address address;
 
     @OneToMany(mappedBy = "member") //member에 의해 매핑된 거울일 뿐이다. 읽기전용
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>(); //초기화를 다음과 같이하는것이 Best Practice
+
+
 }
