@@ -1,9 +1,6 @@
 package jpabookPr.jpashopPr.service;
 
-import jpabookPr.jpashopPr.domain.Delivery;
-import jpabookPr.jpashopPr.domain.Member;
-import jpabookPr.jpashopPr.domain.Order;
-import jpabookPr.jpashopPr.domain.OrderItem;
+import jpabookPr.jpashopPr.domain.*;
 import jpabookPr.jpashopPr.domain.item.Item;
 import jpabookPr.jpashopPr.repository.ItemRepository;
 import jpabookPr.jpashopPr.repository.MemberRepository;
@@ -37,6 +34,7 @@ public class OrderService {
         //배송정보 생성
         Delivery delivery = new Delivery();
         delivery.setAddress(member.getAddress());
+        delivery.setStatus(DeliveryStatus.READY);
 
         //주문상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
