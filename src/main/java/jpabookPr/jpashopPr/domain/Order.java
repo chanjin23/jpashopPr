@@ -1,7 +1,9 @@
 package jpabookPr.jpashopPr.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,6 +15,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @Table(name ="orders") //관례상 이름을 orders변경
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //롬복을 이용하여 생성자제한을  protected로 제한한다.
 public class Order {
 
     @Id

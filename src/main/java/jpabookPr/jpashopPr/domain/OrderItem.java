@@ -2,7 +2,9 @@ package jpabookPr.jpashopPr.domain;
 
 import jakarta.persistence.*;
 import jpabookPr.jpashopPr.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import static jakarta.persistence.FetchType.*;
@@ -10,6 +12,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //롬복을 이용하여 생성자제한을  protected로 제한한다.
 public class OrderItem {
 
     @Id
@@ -29,8 +32,9 @@ public class OrderItem {
 
     private int count;
 
+
     //==생성 메서드==//
-    public static OrderItem createOrder(Item item, int orderPrice, int count) {
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
         orderItem.setOrderPrice(orderPrice);
